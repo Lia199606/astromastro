@@ -5,156 +5,135 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Mój Projekt Szkolny – Wyszukiwarka Kamieni Urodzinowych</title>
   <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('strona.2.png') no-repeat center center fixed;
-  background-size: cover;
-  }
-
-  .burger-icon {
-    display: inline-block;
-    padding: 10px 14px;
-    background: #222;
-    color: #fff;
-    border-radius: 6px;
-    margin: 14px 0 0 14px;
-    z-index: 10;
-    position: relative;
-    font-size: 1.8em;
-  }
-
-  .burger-menu {
-    display: none;
-    flex-direction: column;
-    background: #23272c;
-    position: absolute;
-    top: 56px;
-    left: 16px;
-    min-width: 160px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 12px #0003;
-    z-index: 20;
-  }
-
-  .burger-menu a {
-    color: #fff;
-    text-decoration: none;
-    padding: 14px 18px;
-    border-bottom: 1px solid #353b44;
-    transition: background 0.2s;
-  }
-
-  .burger-menu a:last-child {
-    border-bottom: none;
-  }
-
-  .burger-menu a:hover {
-    background: #29303a;
-    color: #f1c40f;
-  }
-
-  #burger-toggle {
-    display: none;
-  }
-
-  #burger-toggle:checked ~ .burger-menu {
-    display: flex;
-  }
-
-  .menu-title {
-    display: inline-block;
-    margin-left: 70px;
-    margin-top: 22px;
-    font-size: 1.25em;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #222;
-  }
-
-  .container {
-    display: flex;
-    min-height: 85vh;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 56px;
-    padding: 0 15px; /* ✅ Added padding for mobile */
-  }
-
-  .main-content {
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 18px;
-    box-shadow: 0 2px 14px #0001;
-    max-width: 700px;
-    width: 100%;
-    margin: 40px auto;
-  }
-
-  .astro-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 20px;
-    width: 100%; /* ✅ Makes sure form fills mobile width */
-  }
-
-  .astro-form {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 16px;
-    margin-top: 18px;
-    flex-wrap: wrap; /* ✅ Makes form responsive */
-  }
-
-  .astro-form select,
-  .astro-form button {
-    padding: 8px;
-    font-size: 1em;
-    min-width: 100px;
-  }
-
-  .astro-result {
-    margin-top: 24px;
-    font-size: 1.2em;
-    color: #154360;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  @media (max-width: 700px) {
-    .main-content {
-      padding: 22px 5vw;
-      margin: 20px auto;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('strona.2.png') no-repeat center center fixed;
+      background-size: cover;
     }
-
-    .menu-title {
-      margin-left: 60px;
-      font-size: 1em;
-      margin-top: 20px;
-      display: block;
-      max-width: 70vw;
+    .burger-icon {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #222;
+      color: #fff;
+      border-radius: 6px;
+      margin: 14px 0 0 14px;
+      z-index: 10;
+      position: relative;
+      font-size: 1.8em;
+      cursor: pointer;
     }
-
     .burger-menu {
-      left: 0;
-      right: 0;
-      min-width: 0;
-      width: 94vw;
-      margin-left: 3vw;
+      display: none;
+      flex-direction: column;
+      background: #23272c;
+      position: absolute;
+      top: 56px;
+      left: 16px;
+      min-width: 160px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 12px #0003;
+      z-index: 20;
     }
-
+    .burger-menu a {
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-bottom: 1px solid #353b44;
+      transition: background 0.2s;
+    }
+    .burger-menu a:last-child {
+      border-bottom: none;
+    }
+    .burger-menu a:hover {
+      background: #29303a;
+      color: #f1c40f;
+    }
+    #burger-toggle { display: none; }
+    #burger-toggle:checked ~ .burger-menu { display: flex; }
+    .menu-title {
+      display: inline-block;
+      margin-left: 70px;
+      margin-top: 22px;
+      font-size: 1.25em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #222;
+    }
+    .container {
+      display: flex;
+      min-height: 85vh;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 56px;
+      padding: 0 15px;
+    }
+    .main-content {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px #0001;
+      max-width: 700px;
+      width: 100%;
+      margin: 40px auto;
+    }
+    .astro-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 20px;
+      width: 100%;
+    }
+    .astro-form {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
     .astro-form select,
     .astro-form button {
-      width: 100%; /* ✅ Full-width inputs on mobile */
-      max-width: 300px;
+      padding: 8px;
+      font-size: 1em;
+      min-width: 100px;
     }
-  }
-</style>
+    .astro-result {
+      margin-top: 24px;
+      font-size: 1.2em;
+      color: #154360;
+      font-weight: bold;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .main-content {
+        padding: 22px 5vw;
+        margin: 20px auto;
+      }
+      .menu-title {
+        margin-left: 60px;
+        font-size: 1em;
+        margin-top: 20px;
+        display: block;
+        max-width: 70vw;
+      }
+      .burger-menu {
+        left: 0;
+        right: 0;
+        min-width: 0;
+        width: 94vw;
+        margin-left: 3vw;
+      }
+      .astro-form select,
+      .astro-form button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Hamburger Menu -->
@@ -184,7 +163,7 @@
             <option value="">Dzień</option>
             <script>
               for (let d = 1; d <= 31; d++) {
-                document.write(<option value="${d}">${d}</option>);
+                document.write(`<option value="${d}">${d}</option>`);
               }
             </script>
           </select>
@@ -208,7 +187,7 @@
             <script>
               let yearNow = new Date().getFullYear();
               for (let y = yearNow; y >= 1900; y--) {
-                document.write(<option value="${y}">${y}</option>);
+                document.write(`<option value="${y}">${y}</option>`);
               }
             </script>
           </select>
@@ -226,7 +205,7 @@
   <script>
     // Obszerne opisy w języku polskim dla każdego kamienia
     const birthstoneDescriptions = {
-      1: 
+      1: `
         <b>Granat – kamień stycznia</b><br><br>
         <p>
         Granat od wieków uważany jest za kamień, który przynosi siłę, odwagę i ochronę przed złem. Już w starożytnym Egipcie ozdabiano nim biżuterię faraonów, wierząc, że pomaga w podróży po zaświatach. W średniowieczu wojownicy nosili granaty jako talizmany zapewniające im zwycięstwo oraz bezpieczny powrót do domu.
@@ -240,8 +219,8 @@
         <p>
         Dziś granaty wykorzystywane są nie tylko w jubilerstwie, ale też w medycynie niekonwencjonalnej – jako amulet mający pomagać w regeneracji organizmu. Ich piękno i symbolika czynią je wyjątkowym prezentem na każdą okazję.
         </p>
-      ,
-      2: 
+      `,
+      2: `
         <b>Ametyst – kamień lutego</b><br><br>
         <p>
         Ametyst to odmiana kwarcu o niezwykłej, fioletowej barwie, która od tysięcy lat fascynuje ludzi na całym świecie. W starożytnej Grecji uważano, że ametyst chroni przed upiciem i wszelkimi uzależnieniami, dlatego często pito wino z kielichów ozdobionych tym kamieniem.
@@ -255,8 +234,8 @@
         <p>
         Współcześnie ametysty zdobią nie tylko pierścionki czy naszyjniki, ale także są popularnym elementem w dekoracjach wnętrz. Kamień ten wciąż uznawany jest za talizman przynoszący harmonię i równowagę.
         </p>
-      ,
-      3: 
+      `,
+      3: `
         <b>Akwamaryn – kamień marca</b><br><br>
         <p>
         Akwamaryn, jak sama nazwa wskazuje, związany jest z wodą. Jego delikatny, błękitny kolor przypomina spokojne, morskie fale. W dawnych czasach marynarze nosili go jako amulet chroniący przed burzami i zapewniający szczęśliwy powrót z podróży.
@@ -270,8 +249,8 @@
         <p>
         W jubilerstwie akwamaryn ceni się za piękny kolor oraz przejrzystość. Najcenniejsze okazy pochodzą z Brazylii, a ich wartość rośnie wraz z intensywnością barwy. Kamień ten doskonale sprawdza się jako wyjątkowy prezent dla osób urodzonych w marcu.
         </p>
-      ,
-      4: 
+      `,
+      4: `
         <b>Diament – kamień kwietnia</b><br><br>
         <p>
         Diament to najtwardszy znany minerał na Ziemi, a jednocześnie symbol wiecznej miłości i niezniszczalnej więzi. W starożytnych Indiach uważano, że diamenty powstały z błyskawic – ich blask miał chronić przed złymi mocami i przynosić szczęście.
@@ -285,8 +264,8 @@
         <p>
         Współcześnie diamenty fascynują zarówno naukowców, jak i miłośników piękna. Mówi się, że przynoszą odwagę, oczyszczają myśli i wzmacniają pozytywne cechy charakteru.
         </p>
-      ,
-      5: 
+      `,
+      5: `
         <b>Szmaragd – kamień maja</b><br><br>
         <p>
         Szmaragd jest uważany za jeden z najpiękniejszych kamieni szlachetnych. Jego intensywnie zielony kolor symbolizuje odrodzenie, harmonię i szczęście. Już starożytni Egipcjanie cenili szmaragdy za ich urodę i moc – Kleopatra uwielbiała ozdabiać się tymi klejnotami.
@@ -300,9 +279,9 @@
         <p>
         Dziś szmaragd uznawany jest za talizman przynoszący harmonię w relacjach, rozwijający kreatywność i inspirujący do podejmowania nowych wyzwań.
         </p>
-      ,
+      `,
       // Dodaj tak szczegółowe opisy dla pozostałych miesięcy...
-      6: 
+      6: `
         <b>Aleksandryt, perła lub kamień księżycowy – kamienie czerwca</b><br><br>
         <p>
         Czerwiec to wyjątkowy miesiąc, bo ma aż trzy różne kamienie urodzinowe. Aleksandryt znany jest ze swojej zmiennej barwy – w świetle dziennym jest zielony, a przy sztucznym świetle staje się czerwono-purpurowy. Symbolizuje przemianę, szczęście i harmonię.
@@ -316,8 +295,8 @@
         <p>
         Wszystkie kamienie czerwca mają wspólną cechę – pomagają odnaleźć harmonię, chronią przed negatywną energią i dodają pewności siebie osobom urodzonym w tym miesiącu.
         </p>
-      ,
-      7: 
+      `,
+      7: `
         <b>Rubin – kamień lipca</b><br><br>
         <p>
         Rubin to kamień o głębokiej, czerwonej barwie, który od wieków kojarzony jest z miłością, pasją i energią. W starożytnych Indiach uważano go za „króla kamieni szlachetnych”. Był symbolem siły życiowej oraz odwagi.
@@ -331,8 +310,8 @@
         <p>
         Dla osób urodzonych w lipcu rubin jest symbolem entuzjazmu, determinacji i nieustającej pasji do życia.
         </p>
-      ,
-      8: 
+      `,
+      8: `
         <b>Oliwin (Peridot) – kamień sierpnia</b><br><br>
         <p>
         Oliwin, znany też jako peridot, zachwyca świeżym, zielonym kolorem, który symbolizuje odnowę, dobrobyt i optymizm. W starożytnym Egipcie nazywany był „kamieniem słońca” – wierzono, że chroni przed złymi snami i duchami.
@@ -346,8 +325,8 @@
         <p>
         Dla osób urodzonych w sierpniu peridot symbolizuje otwartość na świat, pogodę ducha oraz szczęście w życiu codziennym.
         </p>
-      ,
-      9: 
+      `,
+      9: `
         <b>Szafir – kamień września</b><br><br>
         <p>
         Szafir to nie tylko symbol mądrości i lojalności, ale także jeden z najbardziej pożądanych kamieni szlachetnych na świecie. Jego intensywny niebieski kolor fascynował ludzi od tysiącleci.
@@ -361,8 +340,8 @@
         <p>
         Dla osób urodzonych we wrześniu szafir to amulet mądrości, rozwagi i spokoju ducha.
         </p>
-      ,
-      10: 
+      `,
+      10: `
         <b>Opal (lub turmalin) – kamienie października</b><br><br>
         <p>
         Opal wyróżnia się niezwykłą grą barw – każdy kamień jest niepowtarzalny. Wierzono, że opale zawierają wszystkie barwy tęczy, co czyni je talizmanami kreatywności i szczęścia.
@@ -376,8 +355,8 @@
         <p>
         Opal i turmalin inspirują osoby urodzone w październiku do wyrażania siebie, poszukiwania szczęścia i kreatywnego podejścia do codzienności.
         </p>
-      ,
-      11: 
+      `,
+      11: `
         <b>Topaz (lub cytryn) – kamienie listopada</b><br><br>
         <p>
         Topaz, najczęściej w odcieniach złotych i żółtych, uznawany jest za kamień sukcesu, szczerości i przyjaźni. Wierzono, że wzmacnia wiarę w siebie oraz przyciąga dobrobyt.
@@ -391,8 +370,8 @@
         <p>
         Dla osób urodzonych w listopadzie topaz i cytryn są symbolem energii, szczęścia oraz pogody ducha.
         </p>
-      ,
-      12: 
+      `,
+      12: `
         <b>Turkus (lub cyrkon/tanzanit) – kamienie grudnia</b><br><br>
         <p>
         Turkus to kamień znany od tysięcy lat – używano go już w starożytnym Egipcie i Persji jako amulet ochronny. Miał zapewniać szczęście w podróży i chronić przed nieszczęściami.
@@ -406,7 +385,7 @@
         <p>
         Kamienie grudnia mają symbolizować ochronę, przyjaźń, mądrość i otwartość na nowe doświadczenia.
         </p>
-      
+      `
     };
 
     function showBirthstone(event) {
@@ -417,20 +396,33 @@
       let resultDiv = document.getElementById("result2");
 
       if (!dzien || !miesiac || !rok) {
-        resultDiv.innerHTML = <span style="color:red;">Proszę wybrać pełną datę urodzenia (dzień, miesiąc i rok).</span>;
+        resultDiv.innerHTML = `<span style="color:red;">Proszę wybrać pełną datę urodzenia (dzień, miesiąc i rok).</span>`;
         return false;
       }
 
       let opis = birthstoneDescriptions[miesiac] || "Brak szczegółowych informacji o kamieniu dla wybranego miesiąca.";
+    .burger-menu {
+      left: 0;
+      right: 0;
+      min-width: 0;
+      width: 94vw;
+      margin-left: 3vw;
+    }
 
-      resultDiv.innerHTML = 
+      resultDiv.innerHTML = `
         <div>
           <span style="font-size:1.1em;">Twój kamień urodzinowy dla daty <b>${dzien}.${miesiac}.${rok}</b> to:</span><br><br>
           ${opis}
         </div>
-      ;
+      `;
       return false;
-    }
+    .astro-form select,
+    .astro-form button {
+      width: 100%; /* ✅ Full-width inputs on mobile */
+      max-width: 300px;
+}
   </script>
 </body>
 </html>
+  }
+</style>
