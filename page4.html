@@ -1,193 +1,386 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Mój Projekt Szkolny - Forum</title>
- V
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Mój Projekt Szkolny - Forum</title>
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+  }
+
+  .burger-icon {
+    display: inline-block;
+    padding: 10px 14px;
+    background: #222;
+    color: #fff;
+    border-radius: 6px;
+    margin: 14px 0 0 14px;
+    z-index: 10;
+    position: relative;
+    font-size: 1.8em;
+    cursor: pointer;
+  }
+
+  .burger-menu {
+    display: none;
+    flex-direction: column;
+    background: #23272c;
+    position: absolute;
+    top: 56px;
+    left: 16px;
+    min-width: 160px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px #0003;
+    z-index: 20;
+  }
+
+  .burger-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 18px;
+    border-bottom: 1px solid #353b44;
+    transition: background 0.2s;
+  }
+
+  .burger-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .burger-menu a:hover {
+    background: #29303a;
+    color: #f1c40f;
+  }
+
+  #burger-toggle {
+    display: none;
+  }
+
+  #burger-toggle:checked ~ .burger-menu {
+    display: flex;
+  }
+
+  .menu-title {
+    display: inline-block;
+    margin-left: 70px;
+    margin-top: 22px;
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #222;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  .main-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 2px 14px #0001;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .forum-container {
+    width: 100%;
+  }
+
+  .forum-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  select, input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #5a4ac4;
+  }
+
+  .add-topic-message {
+    text-align: center;
+    margin-bottom: 16px;
+    color: #2d862d;
+  }
+
+  .posts-list {
+    margin-top: 30px;
+  }
+
+  .post-item {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 4px #0001;
+  }
+
+  .post-author {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .post-date {
+    float: right;
+    font-size: 0.85em;
+    color: #777;
+  }
+
+  .post-text {
+    margin-top: 10px;
+    color: #444;
+    white-space: pre-wrap;
+  }
+
+  /* Stacked layout on mobile */
+  @media (max-width: 700px) {
+    .main-content {
+      padding: 22px 5vw;
+    }
+
+    .menu-title {
+      margin-left: 60px;
+      font-size: 1em;
+      margin-top: 20px;
+      max-width: 70vw;
+    }
+
+    .burger-menu {
+      left: 0;
+      right: 0;
+      width: 94vw;
+      margin-left: 3vw;
+    }
+
+    .post-date {
+      float: none;
+      display: block;
+      margin-top: 4px;
+      text-align: right;
+    }
+  }
+</style>
+
 </head>
 <body>
-  <!-- Hamburger Menu -->
-  <input type="checkbox" id="burger-toggle" style="display:none;">
-  <label for="burger-toggle" class="burger-icon" style="font-size:2em;cursor:pointer;user-select:none;">&#9776;</label>
-  <nav class="burger-menu">
-    <a href="index.html">Strona główna</a>
-    <a href="page1.html">Strona 1</a>
-    <a href="page2.html">Strona 2</a>
-    <a href="page3.html">Strona 3</a>
-    <a href="page4.html">Strona 4</a>
-    <a href="page5.html">Strona 5</a>
-  </nav>
-  <span class="menu-title">Mój Projekt Szkolny</span>
+<!-- Hamburger Menu -->
+<input type="checkbox" id="burger-toggle" style="display:none;">
+<label for="burger-toggle" class="burger-icon" style="font-size:2em;cursor:pointer;user-select:none;">&#9776;</label>
+<nav class="burger-menu">
+<a href="index.html">Strona główna</a>
+<a href="page1.html">Strona 1</a>
+<a href="page2.html">Strona 2</a>
+<a href="page3.html">Strona 3</a>
+<a href="page4.html">Strona 4</a>
+<a href="page5.html">Strona 5</a>
+</nav>
+<span class="menu-title">Mój Projekt Szkolny</span>
 
-  <div class="container">
-    <div class="main-content">
-      <div class="astro-center">
-        <div class="forum-container">
-          <div class="forum-title">Forum Klasowe</div>
-          <!-- Topic filter (for viewing posts) -->
-          <div class="topic-filter">
-            <label class="topic-select-label" for="filter-topic">Wybierz temat:</label>
-            <select id="filter-topic" onchange="renderPosts()"></select>
-          </div>
-          <!-- Add topic area -->
-          <form class="add-topic-area" onsubmit="return addNewTopic(event)">
-            <input type="text" id="new-topic-input" placeholder="Dodaj nowy temat..." maxlength="32" />
-            <button type="submit" class="add-topic-btn">Dodaj temat</button>
-          </form>
-          <div class="add-topic-message" id="add-topic-message"></div>
-          <!-- Post form -->
-          <form class="forum-form" onsubmit="return addPost(event)">
-            <label class="topic-select-label" for="post-topic">Wybierz temat:</label>
-            <select id="post-topic" required></select>
-            <input type="text" id="forum-name" placeholder="Twoje imię" maxlength="32" required>
-            <textarea id="forum-comment" rows="3" placeholder="Twój komentarz" maxlength="500" required></textarea>
-            <button type="submit">Dodaj post</button>
-          </form>
-          <div class="posts-list" id="posts-list"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    // Default topics in Polish
-    const defaultTopics = [
-      "Horoskopy",
-      "Kamienie szlachetne",
-      "Dopasowanie związków",
-      "Dyskusja ogólna",
-      "Sugestie dotyczące strony"
-    ];
+<div class="container">
+<div class="main-content">
+<div class="astro-center">
+<div class="forum-container">
+<div class="forum-title">Forum Klasowe</div>
+<!-- Topic filter (for viewing posts) -->
+<div class="topic-filter">
+<label class="topic-select-label" for="filter-topic">Wybierz temat:</label>
+<select id="filter-topic" onchange="renderPosts()"></select>
+</div>
+<!-- Add topic area -->
+<form class="add-topic-area" onsubmit="return addNewTopic(event)">
+<input type="text" id="new-topic-input" placeholder="Dodaj nowy temat..." maxlength="32" />
+<button type="submit" class="add-topic-btn">Dodaj temat</button>
+</form>
+<div class="add-topic-message" id="add-topic-message"></div>
+<!-- Post form -->
+<form class="forum-form" onsubmit="return addPost(event)">
+<label class="topic-select-label" for="post-topic">Wybierz temat:</label>
+<select id="post-topic" required></select>
+<input type="text" id="forum-name" placeholder="Twoje imię" maxlength="32" required>
+<textarea id="forum-comment" rows="3" placeholder="Twój komentarz" maxlength="500" required></textarea>
+<button type="submit">Dodaj post</button>
+</form>
+<div class="posts-list" id="posts-list"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+// Default topics in Polish
+const defaultTopics = [
+"Horoskopy",
+"Kamienie szlachetne",
+"Dopasowanie związków",
+"Dyskusja ogólna",
+"Sugestie dotyczące strony"
+];
 
-    function loadTopics() {
-      let topics;
-      try {
-        topics = JSON.parse(localStorage.getItem('forumTopics'));
-      } catch { topics = null; }
-      if (!Array.isArray(topics) || topics.length === 0) {
-        topics = [...defaultTopics];
-      }
-      return topics;
-    }
+function loadTopics() {
+let topics;
+try {
+topics = JSON.parse(localStorage.getItem('forumTopics'));
+} catch { topics = null; }
+if (!Array.isArray(topics) || topics.length === 0) {
+topics = [...defaultTopics];
+}
+return topics;
+}
 
-    function saveTopics(topics) {
-      localStorage.setItem('forumTopics', JSON.stringify(topics));
-    }
+function saveTopics(topics) {
+localStorage.setItem('forumTopics', JSON.stringify(topics));
+}
 
-    function populateTopicDropdowns() {
-      const topics = loadTopics();
-      const filterSelect = document.getElementById('filter-topic');
-      const postSelect = document.getElementById('post-topic');
-      filterSelect.innerHTML = '';
-      postSelect.innerHTML = '';
-      topics.forEach(topic => {
-        const opt1 = document.createElement('option');
-        opt1.value = topic;
-        opt1.textContent = topic;
-        filterSelect.appendChild(opt1);
+function populateTopicDropdowns() {
+const topics = loadTopics();
+const filterSelect = document.getElementById('filter-topic');
+const postSelect = document.getElementById('post-topic');
+filterSelect.innerHTML = '';
+postSelect.innerHTML = '';
+topics.forEach(topic => {
+const opt1 = document.createElement('option');
+opt1.value = topic;
+opt1.textContent = topic;
+filterSelect.appendChild(opt1);
 
-        const opt2 = document.createElement('option');
-        opt2.value = topic;
-        opt2.textContent = topic;
-        postSelect.appendChild(opt2);
-      });
-      postSelect.value = filterSelect.value;
-    }
+const opt2 = document.createElement('option');
+opt2.value = topic;
+opt2.textContent = topic;
+postSelect.appendChild(opt2);
+});
+postSelect.value = filterSelect.value;
+}
 
-    function loadPosts() {
-      let posts = [];
-      try {
-        posts = JSON.parse(localStorage.getItem('forumPosts') || '[]');
-      } catch { posts = []; }
-      return posts;
-    }
+function loadPosts() {
+let posts = [];
+try {
+posts = JSON.parse(localStorage.getItem('forumPosts') || '[]');
+} catch { posts = []; }
+return posts;
+}
 
-    function savePosts(posts) {
-      localStorage.setItem('forumPosts', JSON.stringify(posts));
-    }
+function savePosts(posts) {
+localStorage.setItem('forumPosts', JSON.stringify(posts));
+}
 
-    function renderPosts() {
-      populateTopicDropdowns();
-      const posts = loadPosts();
-      const postsDiv = document.getElementById('posts-list');
-      const selectedTopic = document.getElementById('filter-topic').value;
-      const filtered = posts.filter(post => post.topic === selectedTopic);
-      if (filtered.length === 0) {
-        postsDiv.innerHTML = '<div style="text-align:center; color:#888;">Brak postów dla tego tematu.</div>';
-        return;
-      }
-      postsDiv.innerHTML = filtered.map(post =>
-        `<div class="post-item">
-          <span class="post-author">${escapeHtml(post.name)}</span>
-          <span class="post-date">${escapeHtml(post.date)}</span>
-          <div class="post-text">${escapeHtml(post.comment)}</div>
-        </div>`
-      ).join('');
-    }
+function renderPosts() {
+populateTopicDropdowns();
+const posts = loadPosts();
+const postsDiv = document.getElementById('posts-list');
+const selectedTopic = document.getElementById('filter-topic').value;
+const filtered = posts.filter(post => post.topic === selectedTopic);
+if (filtered.length === 0) {
+postsDiv.innerHTML = '<div style="text-align:center; color:#888;">Brak postów dla tego tematu.</div>';
+return;
+}
+postsDiv.innerHTML = filtered.map(post =>
+`<div class="post-item">
+         <span class="post-author">${escapeHtml(post.name)}</span>
+         <span class="post-date">${escapeHtml(post.date)}</span>
+         <div class="post-text">${escapeHtml(post.comment)}</div>
+       </div>`
+).join('');
+}
 
-    function addPost(event) {
-      event.preventDefault();
-      const name = document.getElementById('forum-name').value.trim();
-      const comment = document.getElementById('forum-comment').value.trim();
-      const topic = document.getElementById('post-topic').value;
-      if (!name || !comment || !topic) return false;
-      const date = new Date().toLocaleString();
-      const posts = loadPosts();
-      posts.unshift({ name, comment, date, topic });
-      savePosts(posts);
-      renderPosts();
-      event.target.reset();
-      document.getElementById('post-topic').value = document.getElementById('filter-topic').value;
-      return false;
-    }
+function addPost(event) {
+event.preventDefault();
+const name = document.getElementById('forum-name').value.trim();
+const comment = document.getElementById('forum-comment').value.trim();
+const topic = document.getElementById('post-topic').value;
+if (!name || !comment || !topic) return false;
+const date = new Date().toLocaleString();
+const posts = loadPosts();
+posts.unshift({ name, comment, date, topic });
+savePosts(posts);
+renderPosts();
+event.target.reset();
+document.getElementById('post-topic').value = document.getElementById('filter-topic').value;
+return false;
+}
 
-    function addNewTopic(event) {
-      event.preventDefault();
-      const input = document.getElementById('new-topic-input');
-      const msgDiv = document.getElementById('add-topic-message');
-      let newTopic = input.value.trim();
-      if (!newTopic) {
-        msgDiv.textContent = "Wpisz nazwę tematu.";
-        return false;
-      }
-      if (newTopic.length > 32) {
-        msgDiv.textContent = "Nazwa tematu za długa (max 32 znaki).";
-        return false;
-      }
-      let topics = loadTopics();
-      let exists = topics.some(t => t.toLowerCase() === newTopic.toLowerCase());
-      if (exists) {
-        msgDiv.textContent = "Taki temat już istnieje.";
-        return false;
-      }
-      topics.push(newTopic);
-      saveTopics(topics);
-      input.value = "";
-      msgDiv.textContent = "Temat dodany!";
-      populateTopicDropdowns();
-      document.getElementById('filter-topic').value = newTopic;
-      document.getElementById('post-topic').value = newTopic;
-      renderPosts();
-      setTimeout(() => { msgDiv.textContent = ""; }, 2000);
-      return false;
-    }
+function addNewTopic(event) {
+event.preventDefault();
+const input = document.getElementById('new-topic-input');
+const msgDiv = document.getElementById('add-topic-message');
+let newTopic = input.value.trim();
+if (!newTopic) {
+msgDiv.textContent = "Wpisz nazwę tematu.";
+return false;
+}
+if (newTopic.length > 32) {
+msgDiv.textContent = "Nazwa tematu za długa (max 32 znaki).";
+return false;
+}
+let topics = loadTopics();
+let exists = topics.some(t => t.toLowerCase() === newTopic.toLowerCase());
+if (exists) {
+msgDiv.textContent = "Taki temat już istnieje.";
+return false;
+}
+topics.push(newTopic);
+saveTopics(topics);
+input.value = "";
+msgDiv.textContent = "Temat dodany!";
+populateTopicDropdowns();
+document.getElementById('filter-topic').value = newTopic;
+document.getElementById('post-topic').value = newTopic;
+renderPosts();
+setTimeout(() => { msgDiv.textContent = ""; }, 2000);
+return false;
+}
 
-    function escapeHtml(text) {
-      return text.replace(/[&<>"']/g, function(m) {
-        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
-      });
-    }
+function escapeHtml(text) {
+return text.replace(/[&<>"']/g, function(m) {
+return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+});
+}
 
-    document.addEventListener("DOMContentLoaded", function() {
-      if (!localStorage.getItem('forumTopics')) saveTopics(defaultTopics);
-      populateTopicDropdowns();
-      document.getElementById('filter-topic').addEventListener('change', function() {
-        document.getElementById('post-topic').value = this.value;
-        renderPosts();
-      });
-      document.getElementById('post-topic').value = document.getElementById('filter-topic').value;
-      renderPosts();
-    });
-  </script>
+document.addEventListener("DOMContentLoaded", function() {
+if (!localStorage.getItem('forumTopics')) saveTopics(defaultTopics);
+populateTopicDropdowns();
+document.getElementById('filter-topic').addEventListener('change', function() {
+document.getElementById('post-topic').value = this.value;
+renderPosts();
+});
+document.getElementById('post-topic').value = document.getElementById('filter-topic').value;
+renderPosts();
+});
+</script>
 </body>
 </html>
