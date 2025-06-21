@@ -2,14 +2,14 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mój Projekt Szkolny - Strona Główna</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-       background: url('strona.glowna.jpg') no-repeat center center fixed;
-  background-size: cover;
+      background: url('strona.glowna.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
     .burger-icon {
       display: inline-block;
@@ -20,6 +20,7 @@
       margin: 14px 0 0 14px;
       z-index: 10;
       position: relative;
+      font-size: 1.6em;
     }
     .burger-menu {
       display: none;
@@ -40,7 +41,9 @@
       border-bottom: 1px solid #353b44;
       transition: background 0.2s;
     }
-    .burger-menu a:last-child { border-bottom: none; }
+    .burger-menu a:last-child {
+      border-bottom: none;
+    }
     .burger-menu a:hover {
       background: #29303a;
       color: #f1c40f;
@@ -66,6 +69,7 @@
       justify-content: center;
       align-items: flex-start;
       margin-top: 56px;
+      padding: 0 15px; /* ✅ Added padding for small screens */
     }
     .main-content {
       background: #fff;
@@ -76,14 +80,19 @@
       width: 100%;
       margin: 40px auto;
     }
+
+    /* ✅ Responsive tweaks */
     @media (max-width: 700px) {
       .main-content {
         padding: 22px 5vw;
+        margin: 20px auto;
       }
       .menu-title {
         margin-left: 60px;
         font-size: 1em;
         margin-top: 20px;
+        display: block;
+        max-width: 70vw; /* prevent overlapping */
       }
       .burger-menu {
         left: 0;
@@ -92,13 +101,16 @@
         width: 94vw;
         margin-left: 3vw;
       }
+      .burger-icon {
+        font-size: 1.8em; /* Slightly bigger for tap targets */
+      }
     }
   </style>
 </head>
 <body>
   <!-- Hamburger Menu -->
   <input type="checkbox" id="burger-toggle" style="display:none;">
-  <label for="burger-toggle" class="burger-icon" style="font-size:2em;cursor:pointer;user-select:none;">&#9776;</label>
+  <label for="burger-toggle" class="burger-icon" style="cursor:pointer;user-select:none;">&#9776;</label>
   <nav class="burger-menu">
     <a href="index.html">Strona główna</a>
     <a href="page1.html">Strona 1</a>
