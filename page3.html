@@ -5,128 +5,155 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Mój projekt szkolny – Dopasowanie w związku</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-    }
-    .burger-icon {
-      display: inline-block;
-      padding: 10px 14px;
-      background: #222;
-      color: #fff;
-      border-radius: 6px;
-      margin: 14px 0 0 14px;
-      z-index: 10;
-      position: relative;
-    }
-    .burger-menu {
-      display: none;
-      flex-direction: column;
-      background: #23272c;
-      position: absolute;
-      top: 56px;
-      left: 16px;
-      min-width: 160px;
-      border-radius: 8px;
-      box-shadow: 2px 2px 12px #0003;
-      z-index: 20;
-    }
-    .burger-menu a {
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 18px;
-      border-bottom: 1px solid #353b44;
-      transition: background 0.2s;
-    }
-    .burger-menu a:last-child { border-bottom: none; }
-    .burger-menu a:hover {
-      background: #29303a;
-      color: #f1c40f;
-    }
-    #burger-toggle {
-      display: none;
-    }
-    #burger-toggle:checked ~ .burger-menu {
-      display: flex;
-    }
-    .menu-title {
-      display: inline-block;
-      margin-left: 70px;
-      margin-top: 22px;
-      font-size: 1.25em;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #222;
-    }
-    .container {
-      display: flex;
-      min-height: 85vh;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 56px;
-    }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+  }
+
+  .burger-icon {
+    display: inline-block;
+    padding: 10px 14px;
+    background: #222;
+    color: #fff;
+    border-radius: 6px;
+    margin: 14px 0 0 14px;
+    z-index: 10;
+    position: relative;
+    font-size: 1.8em;
+  }
+
+  .burger-menu {
+    display: none;
+    flex-direction: column;
+    background: #23272c;
+    position: absolute;
+    top: 56px;
+    left: 16px;
+    min-width: 160px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px #0003;
+    z-index: 20;
+  }
+
+  .burger-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 18px;
+    border-bottom: 1px solid #353b44;
+    transition: background 0.2s;
+  }
+
+  .burger-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .burger-menu a:hover {
+    background: #29303a;
+    color: #f1c40f;
+  }
+
+  #burger-toggle {
+    display: none;
+  }
+
+  #burger-toggle:checked ~ .burger-menu {
+    display: flex;
+  }
+
+  .menu-title {
+    display: inline-block;
+    margin-left: 70px;
+    margin-top: 22px;
+    font-size: 1.25em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #222;
+  }
+
+  .container {
+    display: flex;
+    min-height: 85vh;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 56px;
+    padding: 0 15px; /* ✅ Added padding for mobile */
+  }
+
+  .main-content {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 18px;
+    box-shadow: 0 2px 14px #0001;
+    max-width: 700px;
+    width: 100%;
+    margin: 40px auto;
+  }
+
+  .astro-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%; /* ✅ Makes sure form fills mobile width */
+  }
+
+  .astro-form {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    margin-top: 18px;
+    flex-wrap: wrap; /* ✅ Makes form responsive */
+  }
+
+  .astro-form select,
+  .astro-form button {
+    padding: 8px;
+    font-size: 1em;
+    min-width: 100px;
+  }
+
+  .astro-result {
+    margin-top: 24px;
+    font-size: 1.2em;
+    color: #154360;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  @media (max-width: 700px) {
     .main-content {
-      background: #fff;
-      padding: 40px 30px;
-      border-radius: 18px;
-      box-shadow: 0 2px 14px #0001;
-      max-width: 700px;
-      width: 100%;
-      margin: 40px auto;
+      padding: 22px 5vw;
+      margin: 20px auto;
     }
-    @media (max-width: 700px) {
-      .main-content {
-        padding: 22px 5vw;
-      }
-      .menu-title {
-        margin-left: 60px;
-        font-size: 1em;
-        margin-top: 20px;
-      }
-      .burger-menu {
-        left: 0;
-        right: 0;
-        min-width: 0;
-        width: 94vw;
-        margin-left: 3vw;
-      }
-    }
-    .astro-center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-top: 20px;
-    }
-    .astro-form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .astro-form .person-fields {
-      display: flex;
-      flex-direction: row;
-      gap: 12px;
-      justify-content: center;
-      align-items: center;
-    }
-    .astro-form select, .astro-form button {
-      padding: 8px;
+
+    .menu-title {
+      margin-left: 60px;
       font-size: 1em;
+      margin-top: 20px;
+      display: block;
+      max-width: 70vw;
     }
-    .astro-result { 
-      margin-top: 24px; 
-      font-size: 1.2em; 
-      color: #154360; 
-      font-weight: bold; 
-      text-align: center;
+
+    .burger-menu {
+      left: 0;
+      right: 0;
+      min-width: 0;
+      width: 94vw;
+      margin-left: 3vw;
     }
-    .astro-label { font-weight: bold; margin-right: 12px; }
-  </style>
+
+    .astro-form select,
+    .astro-form button {
+      width: 100%; /* ✅ Full-width inputs on mobile */
+      max-width: 300px;
+    }
+  }
+</style>
 </head>
 <body>
   <!-- Hamburger Menu -->
