@@ -235,18 +235,42 @@
 
     function randomHoroscope(sign) {
       const fortunes = {
-        "Baran": ["Dziś energia i odwaga to Twoje atuty..."],
-        "Byk": ["Stabilność zaczyna pojawiać się w Twoim życiu..."],
-        "Bliźnięta": ["Twój umysł pracuje dziś na najwyższych obrotach..."],
-        "Rak": ["Empatia i ciepło, które roztaczasz..."],
-        "Lew": ["Twoja pewność siebie rozświetla dziś otoczenie..."],
-        "Panna": ["Porządek i konsekwencja to klucz do sukcesu..."],
-        "Waga": ["Zachowaj dziś równowagę..."],
-        "Skorpion": ["Intuicja poprowadzi Cię do właściwych rozwiązań..."],
-        "Strzelec": ["Przygoda i zmiany wiszą w powietrzu..."],
-        "Koziorożec": ["Twoja wytrwałość przynosi efekty..."],
-        "Wodnik": ["Nieszablonowe pomysły okażą się dzisiaj wyjątkowo trafione..."],
-        "Ryby": ["Warto dziś posłuchać własnych marzeń..."]
+        "Baran": [
+          "Dziś energia i odwaga to Twoje atuty. Zaskakujący zwrot akcji może Cię zaskoczyć, więc bądź czujny na nowe możliwości. Twój upór pomoże pokonać przeszkody. W relacjach okaż trochę cierpliwości – ktoś doceni Twoją szczerość. Wieczorem czeka Cię satysfakcja z własnych działań."
+        ],
+        "Byk": [
+          "Stabilność zaczyna pojawiać się w Twoim życiu. Zaufaj sobie, nawet jeśli inni wątpią. Twoja wytrwałość i sumienność przyniosą dziś konkretne efekty. Jeśli pojawią się trudności, działaj spokojnie i z rozsądkiem. Ktoś bliski może poprosić Cię o wsparcie – nie odmawiaj, a zyskasz wdzięczność."
+        ],
+        "Bliźnięta": [
+          "Twój umysł pracuje dziś na najwyższych obrotach, a kreatywność pozwoli Ci znaleźć nowe rozwiązania. Nie zdziw się, jeśli odezwie się ktoś z przeszłości – rozmowa może przynieść miłe wspomnienia. Bądź otwarty na nowe propozycje. Dzień sprzyja nauce, komunikacji i spontanicznym pomysłom."
+        ],
+        "Rak": [
+          "Empatia i ciepło, które roztaczasz, przyciągną do Ciebie ludzi. Dziś skup się także na własnych potrzebach i nie bój się odmówić, jeśli czegoś nie czujesz. W domu zapanuje harmonia. Pozwól sobie na chwilę odpoczynku i doceniaj drobne radości codzienności. Ktoś bliski dostrzeże Twoje starania."
+        ],
+        "Lew": [
+          "Twoja pewność siebie rozświetla dziś otoczenie. To idealny dzień, aby podjąć wyzwania lub pokazać się z najlepszej strony. Nie bój się zaryzykować, bo los Ci sprzyja. Warto uwierzyć w swoje możliwości i zabłysnąć w grupie. Wieczorem czeka Cię miłe spotkanie lub niespodzianka."
+        ],
+        "Panna": [
+          "Porządek i konsekwencja to klucz do sukcesu. Dziś nawet małe kroki prowadzą do dużych osiągnięć. Starannie planuj działania i unikaj chaosu. W pracy lub szkole czeka Cię uznanie za rzetelność. W relacjach osobistych szczerość i drobne gesty budują zaufanie na przyszłość."
+        ],
+        "Waga": [
+          "Zachowaj dziś równowagę między obowiązkami a przyjemnościami. Ktoś może poprosić Cię o pomoc w ważnej sprawie – Twoja dyplomacja będzie nieoceniona. Nowa szansa pojawi się, jeśli odważysz się podjąć decyzję. Zadbaj o siebie i nie zapomnij o tym, co sprawia Ci radość."
+        ],
+        "Skorpion": [
+          "Intuicja poprowadzi Cię do właściwych rozwiązań. Dziś możesz odkryć coś ważnego lub rozwiązać nurtującą tajemnicę. Nie bój się zadawać trudnych pytań – odpowiedzi są bliżej, niż myślisz. W relacjach osobistych postaw na szczerość i zaufanie. Wieczorem pozwól sobie na odrobinę relaksu."
+        ],
+        "Strzelec": [
+          "Przygoda i zmiany wiszą w powietrzu – dziś czekają Cię nowe wyzwania. Bądź otwarty na propozycje, nawet jeśli są nietypowe. Optymizm pomoże Ci przekonać innych do swoich pomysłów. Warto podjąć ryzyko i spróbować czegoś, o czym zawsze marzyłeś. Wieczorem poczujesz satysfakcję."
+        ],
+        "Koziorożec": [
+          "Twoja wytrwałość przynosi efekty – nawet jeśli dziś wydaje się trudno, nie rezygnuj. Czeka Cię szansa na pokazanie swoich umiejętności w nowej roli lub projekcie. Zaufaj sobie i działaj systematycznie. W rodzinie możesz liczyć na wsparcie. Dzień zakończy się poczuciem dobrze spełnionego obowiązku."
+        ],
+        "Wodnik": [
+          "Nieszablonowe pomysły okażą się dzisiaj wyjątkowo trafione. Twój entuzjazm przyciągnie ludzi, którzy chcą działać razem z Tobą. Dziel się inspiracją i pomagaj innym – wróci do Ciebie z nawiązką. Czasem wystarczy odwaga, aby coś zmienić. Pod koniec dnia poczujesz się naprawdę potrzebny."
+        ],
+        "Ryby": [
+          "Warto dziś posłuchać własnych marzeń – mogą wskazać Ci właściwą drogę. Daj się ponieść wyobraźni i bądź otwarty na to, co przyniesie los. Intuicja pomoże Ci wyczuć najlepszy moment na działanie. Spędź czas z bliskimi lub zrelaksuj się w samotności. Dzień przyniesie spokojną radość."
+        ]
       };
       let arr = fortunes[sign] || ["Przygotuj się na miłą niespodziankę!"];
       return arr[Math.floor(Math.random() * arr.length)];
