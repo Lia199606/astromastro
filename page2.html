@@ -400,27 +400,17 @@
         return false;
       }
 
-      let opis = birthstoneDescriptions[miesiac] || "Brak szczegółowych informacji o kamieniu dla wybranego miesiąca.";
-    .burger-menu {
-      left: 0;
-      right: 0;
-      min-width: 0;
-      width: 94vw;
-      margin-left: 3vw;
-    }
+     let opis = birthstoneDescriptions[miesiac] || "Brak szczegółowych informacji o kamieniu dla wybranego miesiąca.";
 
-      resultDiv.innerHTML = `
-        <div>
-          <span style="font-size:1.1em;">Twój kamień urodzinowy dla daty <b>${dzien}.${miesiac}.${rok}</b> to:</span><br><br>
-          ${opis}
-        </div>
-      `;
-      return false;
-    .astro-form select,
-    .astro-form button {
-      width: 100%; /* ✅ Full-width inputs on mobile */
-      max-width: 300px;
-}
+resultDiv.innerHTML = `
+  <div>
+    <span style="font-size:1.1em;">Twój kamień urodzinowy dla daty <b>${dzien}.${miesiac}.${rok}</b> to:</span><br><br>
+    ${opis}
+  </div>
+`;
+
+return false;
+
   </script>
 </body>
 </html>
